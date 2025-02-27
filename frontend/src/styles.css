@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+html,
+button{
+    font-family: "Quicksand", "sans-serif";
+}
+
+body{
+    margin: 0;
+    /* background-color: rgb(253, 252, 249); */
+}
+
+a{
+    text-decoration: none;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
