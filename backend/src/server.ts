@@ -43,7 +43,6 @@ dbConnect();
 const app = express();
 app.use(express.json());
 
-// ✅ Allow CORS for both localhost & Render frontend
 app.use(cors({
     credentials: true,
     origin: [
