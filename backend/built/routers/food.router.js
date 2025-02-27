@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -38,13 +38,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var express_1 = require("express");
 var data_1 = require("../data");
 var express_async_handler_1 = __importDefault(require("express-async-handler"));
 var food_model_1 = require("../models/food.model");
 var router = (0, express_1.Router)();
-router.get("/seed", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/seed", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foodsCount;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -63,7 +63,7 @@ router.get("/seed", (0, express_async_handler_1.default)(function (req, res) { r
         }
     });
 }); }));
-router.get("/", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -75,7 +75,7 @@ router.get("/", (0, express_async_handler_1.default)(function (req, res) { retur
         }
     });
 }); }));
-router.get("/search/:searchTerm", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/search/:searchTerm", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var searchRegex, foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -89,7 +89,7 @@ router.get("/search/:searchTerm", (0, express_async_handler_1.default)(function 
         }
     });
 }); }));
-router.get("/tags", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/tags", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var tags, all;
     var _a;
     return __generator(this, function (_b) {
@@ -127,7 +127,7 @@ router.get("/tags", (0, express_async_handler_1.default)(function (req, res) { r
         }
     });
 }); }));
-router.get("/tag/:tagName", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/tag/:tagName", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -139,7 +139,7 @@ router.get("/tag/:tagName", (0, express_async_handler_1.default)(function (req, 
         }
     });
 }); }));
-router.get("/:foodId", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/:foodId", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var food;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -151,4 +151,4 @@ router.get("/:foodId", (0, express_async_handler_1.default)(function (req, res) 
         }
     });
 }); }));
-exports.default = router;
+exports["default"] = router;

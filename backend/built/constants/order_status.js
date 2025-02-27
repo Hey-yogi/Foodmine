@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.OrderStatus = void 0;
 var OrderStatus;
 (function (OrderStatus) {
@@ -8,4 +8,4 @@ var OrderStatus;
     OrderStatus["SHIPPED"] = "SHIPPED";
     OrderStatus["CANCELED"] = "CANCELED";
     OrderStatus["REFUNDED"] = "REFUNDED";
-})(OrderStatus || (exports.OrderStatus = OrderStatus = {}));
+})(OrderStatus = exports.OrderStatus || (exports.OrderStatus = {}));

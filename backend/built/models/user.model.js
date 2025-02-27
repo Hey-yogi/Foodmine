@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.UserModel = exports.UserSchema = void 0;
 var mongoose_1 = require("mongoose");
 exports.UserSchema = new mongoose_1.Schema({
@@ -7,7 +7,7 @@ exports.UserSchema = new mongoose_1.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     address: { type: String, required: true },
-    isAdmin: { type: Boolean, required: true },
+    isAdmin: { type: Boolean, required: true }
 }, {
     timestamps: true,
     toJSON: {

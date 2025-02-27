@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var express_1 = require("express");
 var data_1 = require("../data");
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
@@ -47,7 +47,7 @@ var express_async_handler_1 = __importDefault(require("express-async-handler"));
 var http_status_1 = require("../constants/http_status");
 var bcryptjs_1 = __importDefault(require("bcryptjs"));
 var router = (0, express_1.Router)();
-router.get("/seed", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get("/seed", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var usersCount;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -66,7 +66,7 @@ router.get("/seed", (0, express_async_handler_1.default)(function (req, res) { r
         }
     });
 }); }));
-router.post("/login", (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.post("/login", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, email, password, user, _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -77,7 +77,7 @@ router.post("/login", (0, express_async_handler_1.default)(function (req, res) {
                 user = _c.sent();
                 _b = user;
                 if (!_b) return [3 /*break*/, 3];
-                return [4 /*yield*/, bcryptjs_1.default.compare(password, user.password)];
+                return [4 /*yield*/, bcryptjs_1["default"].compare(password, user.password)];
             case 2:
                 _b = (_c.sent());
                 _c.label = 3;
@@ -92,7 +92,7 @@ router.post("/login", (0, express_async_handler_1.default)(function (req, res) {
         }
     });
 }); }));
-router.post('/register', (0, express_async_handler_1.default)(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.post('/register', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, email, password, address, user, encryptedPassword, newUser, dbUser;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -105,7 +105,7 @@ router.post('/register', (0, express_async_handler_1.default)(function (req, res
                     res.status(http_status_1.HTTP_BAD_REQUEST).send('User is already exist, please login!');
                     return [2 /*return*/];
                 }
-                return [4 /*yield*/, bcryptjs_1.default.hash(password, 10)];
+                return [4 /*yield*/, bcryptjs_1["default"].hash(password, 10)];
             case 2:
                 encryptedPassword = _b.sent();
                 newUser = {
@@ -126,8 +126,8 @@ router.post('/register', (0, express_async_handler_1.default)(function (req, res
     });
 }); }));
 var generateTokenResponse = function (user) {
-    var token = jsonwebtoken_1.default.sign({
-        id: user.id, // Include user ID
+    var token = jsonwebtoken_1["default"].sign({
+        id: user.id,
         email: user.email,
         isAdmin: user.isAdmin
     }, process.env.JWT_SECRET, {
@@ -142,7 +142,7 @@ var generateTokenResponse = function (user) {
         token: token
     };
 };
-exports.default = router;
+exports["default"] = router;
 // function asynceHandler(arg0: (req: any, res: any) => Promise<void>): import("express-serve-static-core").RequestHandler<{}, any, any, import("qs").ParsedQs, Record<string, any>> {
 //     throw new Error("Function not implemented.");
 // }
