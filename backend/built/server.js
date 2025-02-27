@@ -34,30 +34,27 @@ var food_router_1 = __importDefault(require("./routers/food.router"));
 var user_router_1 = __importDefault(require("./routers/user.router"));
 var order_router_1 = __importDefault(require("./routers/order.router"));
 var database_config_1 = require("./configs/database.config");
+// Connect to the database
 (0, database_config_1.dbConnect)();
 var app = (0, express_1["default"])();
 app.use(express_1["default"].json());
-// ✅ Allow CORS for both localhost & Render frontend
+// Enable CORS for API requests
 app.use((0, cors_1["default"])({
     credentials: true,
-    origin: [
-        "http://localhost:4200",
-        "https://foodmine-frontend.onrender.com" // 🔹 Replace with your actual frontend URL on Render
-    ]
+    origin: ["http://localhost:4200"] // Update this to your frontend URL if needed
 }));
-// ✅ API Routes
+// Define API routes
 app.use("/api/foods", food_router_1["default"]);
 app.use("/api/users", user_router_1["default"]);
 app.use("/api/orders", order_router_1["default"]);
-// ✅ Serve Angular frontend
-var __dirname = path_1["default"].resolve();
-app.use(express_1["default"].static(path_1["default"].join(__dirname, '../frontend/dist/frontend')));
-// ✅ Handle all other routes and serve Angular index.html
-app.get('*', function (req, res) {
-    res.sendFile(path_1["default"].join(__dirname, '../frontend/dist/frontend/index.html'));
+// Serve the Angular frontend
+var frontendPath = path_1["default"].join(__dirname, "../../frontend/dist/frontend");
+app.use(express_1["default"].static(frontendPath));
+app.get("*", function (req, res) {
+    res.sendFile(path_1["default"].join(frontendPath, "index.html"));
 });
-// ✅ Use Render's assigned port
+// Start the server
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
-    console.log("Server running on port ".concat(port));
+    console.log("Server running on http://localhost:".concat(port));
 });
