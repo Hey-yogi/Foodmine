@@ -26,47 +26,46 @@
 //     console.log("Website served on http://localhost:" + port);
 // })
 
-
-
 import dotenv from 'dotenv';
 dotenv.config();
 
 import express from "express";
 import cors from "cors";
 import path from "path";
+
 import foodRouter from "./routers/food.router";
 import userRouter from "./routers/user.router";
 import orderRouter from './routers/order.router';
 import { dbConnect } from './configs/database.config';
+
+// Connect to the database
 dbConnect();
 
 const app = express();
 app.use(express.json());
 
+// Enable CORS for API requests
 app.use(cors({
     credentials: true,
-    origin: [
-        "http://localhost:4200", 
-        "https://foodmine-frontend.onrender.com" // 🔹 Replace with your actual frontend URL on Render
-    ]
+    origin: ["http://localhost:4200"] // Update this to your frontend URL if needed
 }));
 
-// ✅ API Routes
+// Define API routes
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
-// ✅ Serve Angular frontend
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../frontend/dist/frontend')));
+// Serve the Angular frontend
+const frontendPath = path.join(__dirname, "../../frontend/dist/frontend");
 
-// ✅ Handle all other routes and serve Angular index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/frontend/index.html'));
+app.use(express.static(frontendPath));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-// ✅ Use Render's assigned port
+// Start the server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
