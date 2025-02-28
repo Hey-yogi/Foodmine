@@ -13,26 +13,17 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     credentials:true,
-    origin:["https://foodmine-5pq5.onrender.com"]
+    origin:["http://localhost:4200"]
 }));
 
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
-// app.use(express.static('public'));
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname,'public', 'index.html'))
-// })
-
-const frontendPath = path.join(__dirname, "public");
-
-app.use(express.static(frontendPath));
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-});
-
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname,'public', 'index.html'))
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
