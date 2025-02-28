@@ -45,7 +45,7 @@ router.post('/register', asyncHandler(
 
         const encryptedPassword = await bcrypt.hash(password, 10);
 
-        const newUser: User = {
+        const newUser:User = {
             id: '',
             name,
             email: email.toLowerCase(),
@@ -63,14 +63,14 @@ router.post('/register', asyncHandler(
 
 const generateTokenResponse = (user: User) => {
     const token = jwt.sign({
-        id: user.id,   // Include user ID
+        id: user.id,
         email: user.email, 
         isAdmin: user.isAdmin
     }, process.env.JWT_SECRET!, {
         expiresIn: "30d"
     });
 
-    return {  // Send user data along with the token
+    return {
         id: user.id,
         name: user.name,
         email: user.email,
@@ -82,7 +82,5 @@ const generateTokenResponse = (user: User) => {
 
 export default router;
 
-// function asynceHandler(arg0: (req: any, res: any) => Promise<void>): import("express-serve-static-core").RequestHandler<{}, any, any, import("qs").ParsedQs, Record<string, any>> {
-//     throw new Error("Function not implemented.");
-// }
+
 
