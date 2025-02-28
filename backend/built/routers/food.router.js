@@ -44,7 +44,7 @@ var data_1 = require("../data");
 var express_async_handler_1 = __importDefault(require("express-async-handler"));
 var food_model_1 = require("../models/food.model");
 var router = (0, express_1.Router)();
-router.get("/seed", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/seed', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foodsCount;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -52,18 +52,18 @@ router.get("/seed", (0, express_async_handler_1["default"])(function (req, res) 
             case 1:
                 foodsCount = _a.sent();
                 if (foodsCount > 0) {
-                    res.send("Seed is already done!");
+                    res.send('Seed is already done!');
                     return [2 /*return*/];
                 }
                 return [4 /*yield*/, food_model_1.FoodModel.create(data_1.sample_foods)];
             case 2:
                 _a.sent();
-                res.send("Seed is done!");
+                res.send('Seed Is Done!');
                 return [2 /*return*/];
         }
     });
 }); }));
-router.get("/", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -75,7 +75,7 @@ router.get("/", (0, express_async_handler_1["default"])(function (req, res) { re
         }
     });
 }); }));
-router.get("/search/:searchTerm", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/search/:searchTerm', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var searchRegex, foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -89,7 +89,7 @@ router.get("/search/:searchTerm", (0, express_async_handler_1["default"])(functi
         }
     });
 }); }));
-router.get("/tags", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/tags', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var tags, all;
     var _a;
     return __generator(this, function (_b) {
@@ -110,7 +110,7 @@ router.get("/tags", (0, express_async_handler_1["default"])(function (req, res) 
                             name: '$_id',
                             count: '$count'
                         }
-                    }
+                    },
                 ]).sort({ count: -1 })];
             case 1:
                 tags = _b.sent();
@@ -127,7 +127,7 @@ router.get("/tags", (0, express_async_handler_1["default"])(function (req, res) 
         }
     });
 }); }));
-router.get("/tag/:tagName", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/tag/:tagName', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var foods;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -139,7 +139,7 @@ router.get("/tag/:tagName", (0, express_async_handler_1["default"])(function (re
         }
     });
 }); }));
-router.get("/:foodId", (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/:foodId', (0, express_async_handler_1["default"])(function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var food;
     return __generator(this, function (_a) {
         switch (_a.label) {

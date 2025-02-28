@@ -143,6 +143,3 @@ var generateTokenResponse = function (user) {
     };
 };
 exports["default"] = router;
-// function asynceHandler(arg0: (req: any, res: any) => Promise<void>): import("express-serve-static-core").RequestHandler<{}, any, any, import("qs").ParsedQs, Record<string, any>> {
-//     throw new Error("Function not implemented.");
-// }
